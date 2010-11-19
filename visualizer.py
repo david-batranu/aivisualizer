@@ -43,7 +43,10 @@ def main(args):
         return os.path.join('maps', gamemap)
 
     def output_file(argp1, argp2):
-        return '%svs%s.log' % (argp1.split('.')[0], argp2.split('.')[0])
+        def clean_fname(f):
+            return os.path.basename(f)
+        return '%svs%s.log' % (clean_fname(argp1.split('.')[0]),
+                               clean_fname(argp2.split('.')[0]))
 
     try:
         argp1 = args[0]
