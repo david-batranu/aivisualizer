@@ -66,7 +66,7 @@ def main(args):
                                 }
     print 'Running:', command
     ofile = output_file(argp1, argp2)
-    x = subprocess.call(command, stdout=open(ofile, 'wb'))
+    x = subprocess.call(command, shell=True, stdout=open(ofile, 'wb'))
     print ofile
     if x != 0:
         print 'Some error has occured!'
